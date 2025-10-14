@@ -39,4 +39,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $premium = (float)($_POST['premium'] ?? 0);
         $status = $_POST['status'] ?? 'Pending';
     }
+    if ($id <= 0 || $client === '' || $number === '') {
+        $err = 'Invalid input for update.';
+      } else {
+        try {
+          $stmt = $pdo->prepare("UPDATE policies SET client_name=?, policy_number=?, premium=?, status=? WHERE id=?");
+          $stmt->execute([$client, $number, $premium, $status, $id]);
+          $ok = 'Policy updated.';
+        } catch (PDOException $e) {
+          if ($e->getCode() === '23000') {
+            $err = 'Policy number must be unique.';
+          } else {
+            $err = 'DB error: ' . $e->getMessage();
+          }
+        }
+      }
+    
 }
