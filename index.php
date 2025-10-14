@@ -54,5 +54,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           }
         }
       }
-    
+      if ($action === 'delete') {
+        $id = (int)($_POST['id'] ?? 0);
+        if ($id <= 0) {
+          $err = 'Invalid ID for delete.';
+        } else {
+          $stmt = $pdo->prepare("DELETE FROM policies WHERE id=?");
+          $stmt->execute([$id]);
+          $ok = 'Policy deleted.';
+        }
+      }
 }
