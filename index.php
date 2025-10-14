@@ -69,3 +69,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $search = trim($_GET['q'] ?? '');
 $status = $_GET['status'] ?? '';
 $validStatuses = ['Active','Pending','Expired'];
+
+$sql = "SELECT * FROM policies WHERE 1=1";
+$params = [];
+if ($search !== '') {
+  $sql .= " AND (client_name LIKE :q OR policy_number LIKE :q)";
+  $params[':q'] = "%$search%";
+}
+if ($status !== '' && in_array($status, $validStatuses, true)) {
+  $sql .= " AND status = :status";
+  $params[':status'] = $status;
+}
+$sql .= " ORDER BY created_at DESC, id DESC";
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute($params);
+$policies = $stmt->fetchAll();
