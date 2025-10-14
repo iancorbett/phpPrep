@@ -31,4 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
       }
     }
+
+    if ($action === 'update') {
+        $id = (int)($_POST['id'] ?? 0);
+        $client = trim($_POST['client_name'] ?? '');
+        $number = trim($_POST['policy_number'] ?? '');
+        $premium = (float)($_POST['premium'] ?? 0);
+        $status = $_POST['status'] ?? 'Pending';
+    }
 }
