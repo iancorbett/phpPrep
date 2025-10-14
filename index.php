@@ -65,3 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
       }
 }
+
+$search = trim($_GET['q'] ?? '');
+$status = $_GET['status'] ?? '';
+$validStatuses = ['Active','Pending','Expired'];
