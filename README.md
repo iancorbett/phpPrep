@@ -4,6 +4,8 @@ A lightweight CRUD web app built with plain PHP and PDO, designed to demonstrate
 
 ---
 
+<img width="1052" height="697" alt="Screenshot 2025-10-14 at 9 05 52 PM" src="https://github.com/user-attachments/assets/d1655d0e-19c6-459c-b498-7ba9c10d1d4e" />
+
 ## Features
 
 Add, edit, and delete insurance policies
