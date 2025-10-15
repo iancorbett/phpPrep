@@ -71,3 +71,13 @@ INSERT INTO policies (client_name, policy_number, premium, status, user_id) VALU
 ('Carlton & Co', 'POL-1003', 999.99, 'Expired', 1);
 
 ---
+
+## How It Works
+
+index.php handles all CRUD logic and rendering
+
+db.php connects to the database using PDO
+
+styles.css defines the clean card-based layout
+
+Each action (add, update, delete) is handled via POST with proper validation
