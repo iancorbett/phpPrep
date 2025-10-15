@@ -111,7 +111,7 @@ if ($editId) {
 <body>
   <div class="wrap">
     <header class="card">
-      <h1>🛡️ Policy Tracker</h1>
+      <h1> Policy Tracker</h1>
       <p class="muted">Simple, fast, and built with raw PHP + MySQL.</p>
     </header>
 
@@ -183,7 +183,7 @@ if ($editId) {
     </section>
 
     <footer class="card" style="text-align:center;">
-      <p class="muted">© 2025 Policy Tracker — Built with ❤️ in PHP</p>
+      <p class="muted">© 2025 Policy Tracker — Built with PHP</p>
     </footer>
   </div>
 </body>
