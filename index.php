@@ -91,3 +91,11 @@ $countActive  = (int)$pdo->query("SELECT COUNT(*) FROM policies WHERE status='Ac
 $countPending = (int)$pdo->query("SELECT COUNT(*) FROM policies WHERE status='Pending'")->fetchColumn();
 $countExpired = (int)$pdo->query("SELECT COUNT(*) FROM policies WHERE status='Expired'")->fetchColumn();
 
+$editId = isset($_GET['edit']) ? (int)$_GET['edit'] : 0;
+$editRow = null;
+if ($editId) {
+  $st = $pdo->prepare("SELECT * FROM policies WHERE id=?");
+  $st->execute([$editId]);
+  $editRow = $st->fetch();
+}
+?>
