@@ -85,3 +85,9 @@ $sql .= " ORDER BY created_at DESC, id DESC";
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $policies = $stmt->fetchAll();
+
+$countTotal   = (int)$pdo->query("SELECT COUNT(*) FROM policies")->fetchColumn();
+$countActive  = (int)$pdo->query("SELECT COUNT(*) FROM policies WHERE status='Active'")->fetchColumn();
+$countPending = (int)$pdo->query("SELECT COUNT(*) FROM policies WHERE status='Pending'")->fetchColumn();
+$countExpired = (int)$pdo->query("SELECT COUNT(*) FROM policies WHERE status='Expired'")->fetchColumn();
+
