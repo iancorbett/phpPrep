@@ -26,8 +26,11 @@ Fully standalone — no Laravel, no dependencies
 ## Tech Stack
 
 Language	PHP 8+
+
 Database	MySQL
+
 Styling	Custom CSS
+
 Server	PHP built-in server (php -S localhost:8080)
 
 ---
