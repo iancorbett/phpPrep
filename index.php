@@ -99,3 +99,92 @@ if ($editId) {
   $editRow = $st->fetch();
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Policy Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="card">
+      <h1>🛡️ Policy Tracker</h1>
+      <p class="muted">Simple, fast, and built with raw PHP + MySQL.</p>
+    </header>
+
+    <section class="card">
+      <h2>Add Policy</h2>
+      <form class="row">
+        <div>
+          <div class="muted" style="font-size:12px;">Client</div>
+          <input type="text" placeholder="Alice Johnson" />
+        </div>
+        <div>
+          <div class="muted" style="font-size:12px;">Policy #</div>
+          <input type="text" placeholder="POL-1001" />
+        </div>
+        <div>
+          <div class="muted" style="font-size:12px;">Premium ($)</div>
+          <input type="number" step="0.01" value="0.00" />
+        </div>
+        <div>
+          <div class="muted" style="font-size:12px;">Status</div>
+          <select>
+            <option>Active</option>
+            <option selected>Pending</option>
+            <option>Expired</option>
+          </select>
+        </div>
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Policies</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Client</th>
+            <th>Policy #</th>
+            <th>Premium</th>
+            <th>Status</th>
+            <th>Created</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Alice Johnson</td>
+            <td class="mono">POL-1001</td>
+            <td>$120.00</td>
+            <td><span class="pill green">Active</span></td>
+            <td class="muted">2025-10-12</td>
+            <td class="flex">
+              <a href="#">Edit</a>
+              <button>Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Beacon Logistics</td>
+            <td class="mono">POL-1002</td>
+            <td>$350.50</td>
+            <td><span class="pill yellow">Pending</span></td>
+            <td class="muted">2025-10-10</td>
+            <td class="flex">
+              <a href="#">Edit</a>
+              <button>Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer class="card" style="text-align:center;">
+      <p class="muted">© 2025 Policy Tracker — Built with ❤️ in PHP</p>
+    </footer>
+  </div>
+</body>
+</html>
